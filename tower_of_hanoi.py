@@ -6,6 +6,7 @@ DO NOT MODIFY the function name, the arguments it takes, or the format of the da
 Feel free to add print statements and call your function here as needed so you can write/run code as you are developing
 and debugging your solution to the problem.
 """
+# steps = 0
 
 def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
     """Solves the Tower of Hanoi problem and returns a list of moves.
@@ -44,8 +45,12 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
     # Exit case n == 0
     if n == 0:
         return moves_list
-    # print(f"Step: {n}")
+
+    # print(f"Step: {steps} Ring: {n} Source: {source} Dest: {destination} Aux: {auxiliary}")
     tower_of_hanoi(n-1, source, auxiliary, destination, moves_list)
+    # global steps 
+    # steps += 1
+    # str_move = f"Step {steps} Move disk {n} from {source} to {destination}"
     str_move = f"Move disk {n} from {source} to {destination}"
     moves_list.append(str_move)
     # print(str_move)
