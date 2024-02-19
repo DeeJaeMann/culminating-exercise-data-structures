@@ -34,10 +34,17 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
         :return: The list of moves made to solve the Tower of Hanoi problem.
         :rtype: list
     """
-
     # Exit case n == 0
     if n == 0:
         return moves_list
+    elif n == 1 :
+        # Check if there are any existing moves
+        if moves_list == [] :
+            # There are none, move the disk to the destination
+            str_this_move = f"Move disk {n} from {source} to {destination}"
+            moves_list.append(str_this_move)
+            return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
     
 
-print(tower_of_hanoi(0, "A", "C", "B", []))
+# print(f"Test 0: {tower_of_hanoi(0, 'A', 'C', 'B', [])}")
+print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
