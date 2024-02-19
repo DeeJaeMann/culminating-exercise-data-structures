@@ -38,13 +38,35 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
     if n == 0:
         return moves_list
     elif n == 1 :
+        # Smallest disk
         # Check if there are any existing moves
         if moves_list == [] :
             # There are none, move the disk to the destination
             str_this_move = f"Move disk {n} from {source} to {destination}"
             moves_list.append(str_this_move)
             return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
+        else :
+            # Disk 1 should be in auxillary
+            str_this_move = f"Move disk {n} from {auxiliary} to {destination}"
+            moves_list.append(str_this_move)
+            return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
+    elif n == 2 :
+        # Second smallest disk
+        # Check if there are any existing moves
+        if moves_list == [] :
+            # There are none, move disk 1 to auxilary
+            str_this_move = f"Move disk {n-1} from {source} to {auxiliary}"
+            moves_list.append(str_this_move)
+            # Don't reset N, we still have 2 moves to complete
+            return tower_of_hanoi(n, source, destination, auxiliary, moves_list)
+        else :
+            # Disk 1 is in aux, move disk 2 to destination
+            str_this_move = f"Move disk {n} from {source} to {destination}"
+            moves_list.append(str_this_move)
+            # Decriment N to move the final disk
+            return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
     
 
 # print(f"Test 0: {tower_of_hanoi(0, 'A', 'C', 'B', [])}")
-print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
+# print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
+print(f"Test 2: {tower_of_hanoi(2, 'A', 'C', 'B', [])}")
