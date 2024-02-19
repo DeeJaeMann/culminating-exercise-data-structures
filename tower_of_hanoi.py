@@ -8,8 +8,7 @@ and debugging your solution to the problem.
 """
 
 def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
-    """
-        Solves the Tower of Hanoi problem and returns a list of moves.
+    """Solves the Tower of Hanoi problem and returns a list of moves.
 
         Each 'rod' is named "A", "B", "C".
         "A" is always the first rod on the left, "B" is the rod in the middle, "C" is the last rod on the right.
@@ -35,4 +34,10 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
         :return: The list of moves made to solve the Tower of Hanoi problem.
         :rtype: list
     """
-    pass
+
+    # Exit case n == 0
+    if n == 0:
+        return moves_list
+    
+
+print(tower_of_hanoi(0, "A", "C", "B", []))
