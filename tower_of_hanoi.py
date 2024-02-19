@@ -38,45 +38,25 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
     # move last disk from a to c
     # move n-1 disks from b to c, using a as helper
 
+    # Work on understanding this better
+    # Why was I making this so complicated?
+
     # Exit case n == 0
     if n == 0:
         return moves_list
-    
-    if n == 1 :
-        str_this_move = f"Move disk {n} from {source} to {destination}"
-        moves_list.append(str_this_move)
-        return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
-    elif n == 2:
-        # Perform smallest disk move
-        str_this_move = f"Move disk {n-1} from {source} to {auxiliary}"
-        moves_list.append(str_this_move)
+    # print(f"Step: {n}")
+    tower_of_hanoi(n-1, source, auxiliary, destination, moves_list)
+    str_move = f"Move disk {n} from {source} to {destination}"
+    moves_list.append(str_move)
+    # print(str_move)
+    tower_of_hanoi(n-1, auxiliary, destination, source, moves_list)
 
-        # Move the last disk
-        str_this_move = f"Move disk {n} from {source} to {destination}"
-        moves_list.append(str_this_move)
-
-        return tower_of_hanoi(n-1, auxiliary, destination, source, moves_list)
-        
-    else :
-        
-        # Perform largest disk move
-        str_this_move = f"Move disk {n} from {source} to {destination}"
+    return moves_list
 
 
-        return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
-
-    # Perform largest disk move:
-    # str_this_move = f"Move disk {n} from {source} to {destination}"
-    # moves_list.append(str_this_move)
-
-
-    
-
-
-
-print(f"Test 0: {tower_of_hanoi(0, 'A', 'C', 'B', [])}")
-print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
-print(f"Test 2: {tower_of_hanoi(2, 'A', 'C', 'B', [])}")
+# print(f"Test 0: {tower_of_hanoi(0, 'A', 'C', 'B', [])}")
+# print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
+# print(f"Test 2: {tower_of_hanoi(2, 'A', 'C', 'B', [])}")
 # print(f"Test 3: {tower_of_hanoi(3, 'A', 'C', 'B', [])}")
 # print(f"Test 4: {tower_of_hanoi(4, 'A', 'C', 'B', [])}")
     
