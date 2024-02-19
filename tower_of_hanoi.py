@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 Tower of Hanoi problem. This file must have a function named `tower_of_hanoi`, which the test code will import and run.
 DO NOT MODIFY the function name, the arguments it takes, or the format of the data it returns
