@@ -58,7 +58,7 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
         return tower_of_hanoi(n-1, auxiliary, destination, source, moves_list)
         
     else :
-        tower_of_hanoi(1, source, )
+        
         # Perform largest disk move
         str_this_move = f"Move disk {n} from {source} to {destination}"
 
