@@ -55,31 +55,13 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
         str_this_move = f"Move disk {n} from {source} to {destination}"
         moves_list.append(str_this_move)
 
-        # Move the smallest disk
-        str_this_move = f"Move disk {n-1} from {auxiliary} to {destination}"
-        moves_list.append(str_this_move)
-
-        return tower_of_hanoi(n-2, source, destination, auxiliary, moves_list)
+        return tower_of_hanoi(n-1, auxiliary, destination, source, moves_list)
         
     else :
-        # Perform smallest disk move:
-        str_this_move = f"Move disk {n-(n-1)} from {source} to {destination}"
-        moves_list.append(str_this_move)
-        # Perform second disk move:
-        str_this_move = f"Move disk {n-(n-2)} from {source} to {auxiliary}"
-        moves_list.append(str_this_move)
-        # Move the smallest disk
-        str_this_move = f"Move disk {n-(n-1)} from {destination} to {auxiliary}"
-        moves_list.append(str_this_move)
-        # Move the largest disk
+        tower_of_hanoi(1, source, )
+        # Perform largest disk move
         str_this_move = f"Move disk {n} from {source} to {destination}"
-        moves_list.append(str_this_move)
-        # Move the smallest disk
-        str_this_move = f"Move disk {n-(n-1)} from {auxiliary} to {source}"
-        moves_list.append(str_this_move)
-        # Move the second disk
-        str_this_move = f"Move disk {n-(n-2)} from {auxiliary} to {destination}"
-        moves_list.append(str_this_move)
+
 
         return tower_of_hanoi(n-1, source, destination, auxiliary, moves_list)
 
@@ -95,45 +77,7 @@ def tower_of_hanoi(n, source, destination, auxiliary, moves_list):
 print(f"Test 0: {tower_of_hanoi(0, 'A', 'C', 'B', [])}")
 print(f"Test 1: {tower_of_hanoi(1, 'A', 'C', 'B', [])}")
 print(f"Test 2: {tower_of_hanoi(2, 'A', 'C', 'B', [])}")
-print(f"Test 3: {tower_of_hanoi(3, 'A', 'C', 'B', [])}")
-print(f"Test 4: {tower_of_hanoi(4, 'A', 'C', 'B', [])}")
+# print(f"Test 3: {tower_of_hanoi(3, 'A', 'C', 'B', [])}")
+# print(f"Test 4: {tower_of_hanoi(4, 'A', 'C', 'B', [])}")
     
-# lst_5 = ["Move disk 1 from A to C", 
-# "Move disk 2 from A to B", 
-# "Move disk 1 from C to B", 
-# "Move disk 3 from A to C", # Disk 3
-# "Move disk 1 from B to A", 
-# "Move disk 2 from B to C", 
-# "Move disk 1 from A to C", 
-# "Move disk 4 from A to B", # Disk 4
-# "Move disk 1 from C to B", 
-# "Move disk 2 from C to A", 
-# "Move disk 1 from B to A", 
-# "Move disk 3 from C to B", 
-# "Move disk 1 from A to C", 
-# "Move disk 2 from A to B", 
-# "Move disk 1 from C to B", 
-# "Move disk 5 from A to C", # Last disk
-# "Move disk 1 from B to A", 
-# "Move disk 2 from B to C", 
-# "Move disk 1 from A to C", 
-# "Move disk 3 from B to A", 
-# "Move disk 1 from C to B", 
-# "Move disk 2 from C to A", 
-# "Move disk 1 from B to A", 
-# "Move disk 4 from B to C", 
-# "Move disk 1 from A to C", 
-# "Move disk 2 from A to B", 
-# "Move disk 1 from C to B", 
-# "Move disk 3 from A to C", 
-# "Move disk 1 from B to A", 
-# "Move disk 2 from B to C", 
-# "Move disk 1 from A to C"]
-# lst_4 = ["Move disk 1 from A to B", "Move disk 2 from A to C", "Move disk 1 from B to C", "Move disk 3 from A to B", "Move disk 1 from C to A", "Move disk 2 from C to B", "Move disk 1 from A to B", "Move disk 4 from A to C", "Move disk 1 from B to C", "Move disk 2 from B to A", "Move disk 1 from C to A", "Move disk 3 from B to C", "Move disk 1 from A to B", "Move disk 2 from A to C", "Move disk 1 from B to C"]
-# lst_3 = ["Move disk 1 from A to C", "Move disk 2 from A to B", "Move disk 1 from C to B", "Move disk 3 from A to C", "Move disk 1 from B to A", "Move disk 2 from B to C", "Move disk 1 from A to C"]
-# lst_2 = ["Move disk 1 from A to B", "Move disk 2 from A to C", "Move disk 1 from B to C"]
-
-# print(len(lst_5))
-# print(len(lst_4))
-# print(len(lst_3))
 
